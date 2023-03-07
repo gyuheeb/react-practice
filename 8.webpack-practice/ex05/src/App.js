@@ -1,9 +1,9 @@
 import './assets/scss/App.scss';
 
-function App(){
-    const App =document.createElement('div');
+function App() {
+    const App = document.createElement('div');
     App.textContent = "Hello World";
-    App.className="Header";
+    App.className = "Header";
     return App;
 }
 

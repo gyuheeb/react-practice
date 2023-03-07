@@ -4,7 +4,7 @@ function App(){
     const App =document.createElement('div');
     
     App.className="App";
-    App.innerHtml=
+    App.innerHTML=
 
    `<header className="App-header">
     <img src="${logo}" className="App-logo" alt="logo" />
