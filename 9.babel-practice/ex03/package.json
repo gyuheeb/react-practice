@@ -1,0 +1,19 @@
+{
+  "name": "ex03",
+  "version": "1.0.0",
+  "description": "1. Babel CLI\r     1) 설치\r       $ npm i -D @babel/core @babel/cli\r     2)$ npx babel src -d dist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-block-scoping": "^7.21.0",
+    "@babel/plugin-transform-for-of": "^7.21.0",
+    "@babel/plugin-transform-parameters": "^7.20.7"
+  }
+}
