@@ -4,7 +4,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "name": "ex05",
+  "name": "ex06",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,11 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "node-sass": "^8.0.0",
     "style-loader": "^3.3.1",
