@@ -13,7 +13,7 @@ ex02: Component Styling
 5) SASS & SCSS
   - css-loader options: (modules:true)
   - $ npm run debug src=02 css-modules=true
-6) CSS in JS : Styled Component*, Less & Styleable    - 03/09
+6) CSS in JS : Styled Component*, Less & Styleable   
    - $ npm i styled-components
    - css-loader options: (modules:true)
    - $ npm run debug src=02 css-modules=true
