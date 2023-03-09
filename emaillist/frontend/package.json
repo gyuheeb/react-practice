@@ -6,7 +6,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.8"
   },
-  "name": "kanbanboard",
+  "name": "emaillist",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
