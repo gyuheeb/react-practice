@@ -1,0 +1,5 @@
+@import 'Common.css';
+
+:global(#App){
+    color: #111
+}
