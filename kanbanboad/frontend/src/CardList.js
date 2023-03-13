@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './assets/css/CardList.css';
 import Card from './Card';
-const CardList = ({title, cards}) => {
+const CardList = ({title, cards , callback}) => {
     console.log(cards);
     return (
         <div className={styles.CardList}>
@@ -12,6 +12,7 @@ const CardList = ({title, cards}) => {
                                         title={card.title}
                                         description={card.description}
                                         tasks={card.tasks}
+                                        callback={callback}
                                         />)
             }
         </div>
