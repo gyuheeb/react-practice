@@ -8,8 +8,9 @@ const Email = ({no,firstName, lastName, email}) => {
         
             <li>
             {firstName + lastName}
-                <br></br>
-             {email}
+            
+            <span>{email}</span>
+            <a href=''></a>
             </li>
         
 

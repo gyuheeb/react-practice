@@ -8,22 +8,18 @@ import emaillist from './assets/json/data.json';
 
 const App = () => {
     const [emails, setEmails]= useState(emaillist);
-
-    const notifyKeyWordChanged = function(){
-        //keyword가 firstName or lastName or email 
-       const newEmail =  emails.filter(function(e){
-             newEmail.text.toLowerCase().includes(firstName)
-             newEmail.text.toLowerCase().includes(lastName)
-             newEmail.text.toLowerCase().includes(emails) 
-           
-        })
-
+     //keyword가 firstName or lastName or email 
+    const notifyKeyWordChanged = function(keyword){
+        const emails = emaillist.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
+        setEmails(emails);
     }
+
+    
     return (
        <div id ="App" className={'App'}>
             <RegisterForm />
             <Searchbar callback= {notifyKeyWordChanged}/>
-            <Emaillist emaillist={emaillist}  />
+            <Emaillist emails={emails}  />
 
        </div>
     )
