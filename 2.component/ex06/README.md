@@ -30,7 +30,7 @@ emails.push({});
 2. src/02 참고
 
 ### How III:
-1. I, II는 Nest Object 가 있는 경우 까다롭다.
+1. II는 Nest Object 가 있는 경우 까다롭다.
    - Object.assign은 deep copy 지원 안함.
    - deep clone을 뜨는 방법은 비용이 비싸다.
    - 직접 하는 방법은 관리가 어렵고 코드에 실수가 있을 가능 성 많음.
