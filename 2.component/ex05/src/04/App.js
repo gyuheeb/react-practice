@@ -12,10 +12,10 @@ export default function App() {
         }, 1000);
         return (() => clearInterval(id))
       }, []);
-     console.log(tick);
+    
     return (
         <div>
-            <span>{tick.toLocaleTimeString()}</span>
+           
             {
                 tick.getSeconds() % 10 === 0 ?
                 null:
