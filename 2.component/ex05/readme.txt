@@ -1,14 +1,27 @@
 ex05: Component - Lifecycle
 
-01. Lifecycle I : Mount 
-  
+01. Class Component
+   01) Lifecycle I : Mount 
+      - 1. constructor
+      - 2. getDerivedStateFromProps
+      - 3. render ***
+      - 4. componentDidMount ***
+   02) Lifecycle II : update
+      - 1. getDerivedStateFromProps
+      - 2. shouldComponentUpdate *
+      - 3. render ***
+      - 4. getSnapshotBeforeUpdate
+      - 5. componentDidUpdate ***
 
-02. Lifecycle II : update
-  
-03. Lifecycle III : Unmount 
+   03) Lifecycle III : Unmount 
+      componentWillUnmount *** 
 
-04. Data Flow (Bottom -> Top)
-
+02. Functional Component : Alternative (대체) - useEffect
+   - getDerivedStateFromProps 대체
+   - After Rendering(componentDidMount, componentDidUpdate) 대체
+   - 바뀐 상태에 의존적으로 코드 실행 가능
+   - componentWillUnmount 대체
+   
 ===============================================
 
 1. 설치

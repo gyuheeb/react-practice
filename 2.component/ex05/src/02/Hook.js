@@ -22,19 +22,21 @@ export default function Hook({ color }) {
 
     /**
      *  3. 어떤 특정 상태(boxColor)의 변화에 반응하는 After Rendering 함수
-     *     : 관심 분리
+     *     : 관심 분리 
+     * (박스 컬러가 변경되었을때 Rendering)
      */
     useEffect(() => {
         console.log('Update Color(DB) Using APIs...');
     }, [boxColor]);
 
+
     /**
      *  4. Alternative 02: componentDidMount & componentWillUnmount
      */
     useEffect(() => {
-        console.log('After Mount(componentDidMount)');
+        console.log('After Mount(componentDidMount)');  //이거만 있으면 didmount (마운트가 끝난다음 ..)
         return (function(){
-            console.log('After Unmount(componentWillUnmount)');
+            console.log('After Unmount(componentWillUnmount)'); // 함수 리턴 하면  그 함수 unmount 
         });
     }, []);
 
