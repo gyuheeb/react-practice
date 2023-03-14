@@ -3,8 +3,8 @@ import fs from 'fs';
 let state ={
     order: JSON.parse(fs.readFileSync('./json/data.json','utf-8'))
 }
-
-const updateOrderProducts1 =  state.order.products.push({
+const updateOrderProducts1 =  state.order.products;
+updateOrderProducts1.push({
     no: 'c002-003',
     name: '블루 바지',
     price: 2000,
