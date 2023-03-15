@@ -14,7 +14,7 @@ public class LandingController {
 	}
 	
 	@GetMapping("favicon.ico")
-	@ResponseBody
+	@ResponseBody       //favicon 응답 x 
 	public void returnNoFavivon() {
 	}
 }

@@ -1,53 +1,56 @@
-import React ,{useState} from 'react';
+import React ,{useEffect, useState} from 'react';
 import styles from './assets/css/KanbanBoard.css';
-import data from './assets/json/data.json';
 import CardList from './CardList';
 
 
 const KanbanBoard = () => {
-    const [cards, setCards] = useState(data);
+    const [cards, setCards] = useState([]);
 
-    const changeTaskDone = function(cardNo, taskNo,done){
-        const cardIndex = cards.findIndex(card => card.no === cardNo);
-        const  taskindex= cards[cardIndex].tasks.findIndex(task => task.no === taskNo);
-           
-        const newCards = update(cards, {
-            [cardIndex]:{
-                tasks: {
-                    [taskindex]:{
-                        done: {
-                            $set: done
-                        }
-                    }
+    const fetchCards = async() =>{
+        try{
+            const response = await fetch('/api/card',{
+                method : 'get',
+                headers : {
+                    'Accept' : 'application/json'
                 }
+            }); 
+
+            if(!response.ok){
+                throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+             }
+            const json = await response.json();
+            //console.log(json);
+            if(json.result !== 'success'){
+                throw new Error(`${json.result} ${json.message}`);
             }
-        });
-        setCards(newCards);
+        setCards(json.data);  //data 받아옴
 
-
-
-        console.log(cardIndex, taskindex,done);
-           cards[cardIndex].tasks[taskindex].done = done;
-   
-           setCards(cards);
-       }
+        }catch(err){
+            console.log(err.message);
+        }
+       
+    }
+    useEffect(() => {
+        fetchCards();
+    },[]) 
+       
     return (
         <div className={styles.KanbanBoard}>
             <CardList
                 key ={'To Do'}
                 title={'To Do'} 
                 cards={cards.filter((card => card.status === 'ToDo'))}
-                callback={changeTaskDone}/>
+              />
             <CardList
                 key ={'Doing'}
                 title={'Doing'}
                 cards={cards.filter((card => card.status === 'Doing'))}
-                callback={changeTaskDone}/>
+                />
             <CardList 
                 key ={'Done'}
                 title={'Done'}
                 cards={cards.filter((card => card.status === 'Done'))}
-                callback={changeTaskDone}/>
+                />
         </div>
     );
 };

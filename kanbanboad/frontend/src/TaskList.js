@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Task from './Task';
-const TaskList = ({cardNo, tasks ,callback}) => {
+import styles from './assets/css/TaskList.css'
+const TaskList = ({cardNo, tasks ,callbackAddTask}) => {
+
     return (
         <div>
             <ul>
@@ -10,8 +12,17 @@ const TaskList = ({cardNo, tasks ,callback}) => {
                                     cardNo ={cardNo}
                                     name={task.name}
                                     done={task.done}
-                                    callback={callback} />)}
+                                    />)}
             </ul>
+            <input 
+                type=' text' 
+                placeholder={'테스크 추가'}
+                className={styles.TaskList__add_task}
+                onKeyDown={(e)=>{
+                    if(e.key === 'Enter'){ //엔터 눌렀을 때 data 전달
+                        callbackAddTask(e.target.value)
+                    }
+                }} />
         </div>
     );
 };
