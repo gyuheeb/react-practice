@@ -25,6 +25,13 @@ export default function App() {
         return (() => clearInterval(Timer))
       }, []);
     
+    // useEffect(() => {
+    //     setTimeout(()=>{
+    //         setCurrentTime(getCurrentClockTime());
+    //         setTick(tick+1);
+    //     },1000);
+    // },[currenttime]);
+       
     return (
         <div>
            <span>{tick}</span>
