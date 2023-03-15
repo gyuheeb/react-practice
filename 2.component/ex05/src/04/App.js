@@ -15,7 +15,7 @@ export default function App() {
         }
     }
     const [currenttime, setCurrentTime]= useState(getCurrentClockTime());
-    const[tick, setTick] = useState(new Date());
+    const[tick, setTick] = useState(0);
 
     useEffect(() => {
         const Timer = setInterval(() => {
