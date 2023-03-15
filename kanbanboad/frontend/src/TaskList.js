@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Task from './Task';
 import styles from './assets/css/TaskList.css'
-const TaskList = ({tasks ,callbackAddTask, callbackChangeTask}) => {
+const TaskList = ({tasks ,callbackAddTask, callbackChangeTaskDone}) => {
 
     return (
         <div>
@@ -11,7 +11,7 @@ const TaskList = ({tasks ,callbackAddTask, callbackChangeTask}) => {
                                     no={task.no}
                                     name={task.name}
                                     done={task.done}
-                                    callbackChangeTask={callbackChangeTask}
+                                    callbackChangeTaskDone={callbackChangeTaskDone}
                                     />)}
             </ul>
             <input 
