@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import React from 'react';
 import styles from './assets/css/Emaillist.css'
 
 
@@ -12,10 +12,7 @@ const Email = ({no,firstname, lastname, email, callbackDeleteEmail}) => {
             {firstname + lastname}
             
             <span>{email}</span>
-            <a href={(e)=> {
-                e.preventDefault();
-                callbackDeleteEmail(e.target.no.value);
-            }} ></a>
+            <a href='#' className={styles.Emaillist__}></a>
             </li>
         
 

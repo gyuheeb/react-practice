@@ -70,13 +70,43 @@ const App = () => {
         const emails = emaillist.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
         setEmails(emails);
     }
+    
+    const deleteEmail = async(no) =>{
+        const newDelete ={
+            no:no
+        };
+        try{
+            const response = await fetch(`/delete/${no}`,{
+                method : 'delete',
+                headers : {
+                    'Accept' : 'application/json',
+                    'Content-Type':"application/json"
+                },
+                body :JSON.stringify(newTask)
+            });
+            if(!response.ok){
+                throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+             }
+            const json = await response.json();
+            //console.log(json);
+            if(json.result !== 'success'){
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            setEmails([json.data, ...tasks]);  //data 받아옴
+        }catch(err){
+            console.log(err.message);
+
+        }
+    }
 
     
     return (
        <div id ="App" className={'App'}>
             <RegisterForm callbackAddEmail={addEmail} />
             <Searchbar callback= {notifyKeyWordChanged}/>
-            <Emaillist emails={emails}  />
+            <Emaillist 
+                emails={emails} 
+                callbackDeleteEmail={deleteEmail} />
 
        </div>
     )
