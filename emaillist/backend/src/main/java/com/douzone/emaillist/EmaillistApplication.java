@@ -16,18 +16,5 @@ public class EmaillistApplication {
 		SpringApplication.run(EmaillistApplication.class, args);
 	}
 	
-	@Bean
-	public ApplicationRunner scriptRunner() {
-		return new ApplicationRunner() {
-			@Autowired
-			private SqlSessionFactory sqlSessionFactory;
-			
-			@Override
-			public void run(ApplicationArguments args) throws Exception {
-				ScriptRunner scriptRunner = new ScriptRunner(sqlSessionFactory.getConfiguration().getEnvironment().getDataSource().getConnection());
-			
-			}
-		};
-	}
 
 }

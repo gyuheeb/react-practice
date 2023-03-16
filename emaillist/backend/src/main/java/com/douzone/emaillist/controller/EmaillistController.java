@@ -52,11 +52,10 @@ public class EmaillistController {
 	
 	@GetMapping("/email/{keyword}")
 	public ResponseEntity<JsonResult> find(@PathVariable("keyword") String keyword){
-		emaillistRepository.findKeyword(keyword);
 		
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(JsonResult.success(keyword));
+				.body(JsonResult.success(emaillistRepository.findKeyword(keyword)));
 	}
 	
 	
