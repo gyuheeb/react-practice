@@ -18,6 +18,8 @@ ex02: Component Styling
    - css-loader options: (modules:true)
    - $ npm run debug src=02 css-modules=true
 7) React Modal
+   -설치
+    - $ npm i react-modal
 8) Modal: Material UI
 
 src/01: FoodList : 함수 컴포넌트
