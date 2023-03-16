@@ -12,5 +12,5 @@ const Searchbar = ({callback}) => {
         </div>
     );
 };
-
-export default Searchbar;
+export default Searchbar
+;
