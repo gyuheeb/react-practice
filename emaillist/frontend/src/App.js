@@ -66,23 +66,16 @@ const App = () => {
          console.log(err.message);
      }};
 
-    const notifyKeyWordChanged = function(keyword){
-        const emails = emaillist.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
-        setEmails(emails);
-    }
     
     const deleteEmail = async(no) =>{
-        const newDelete ={
-            no:no
-        };
         try{
-            const response = await fetch(`/delete/${no}`,{
+            const response = await fetch(`/api/delete/${no}`,{
                 method : 'delete',
                 headers : {
                     'Accept' : 'application/json',
                     'Content-Type':"application/json"
                 },
-                body :JSON.stringify(newTask)
+                
             });
             if(!response.ok){
                 throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
@@ -92,10 +85,36 @@ const App = () => {
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
-            setEmails([json.data, ...tasks]);  //data 받아옴
+            const newEmails = emails.filter((email) => email.no !== no);
+            setEmails(newEmails);
+            
         }catch(err){
             console.log(err.message);
 
+        }
+    }
+
+    const findkeyword = async(keyword) =>{
+    
+        try{
+            const response = await fetch(`/api/email/${keyword}`,{
+                method : 'get',
+                headers :{
+                    'Accept' : 'application/json'
+                }
+            });
+
+            if(!response.ok){
+                throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+             }
+            const json = await response.json();
+            if(json.result !== 'success'){
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            setEmails(json.data)
+
+        }catch(err){
+            console.log(err.message);
         }
     }
 
@@ -103,7 +122,7 @@ const App = () => {
     return (
        <div id ="App" className={'App'}>
             <RegisterForm callbackAddEmail={addEmail} />
-            <Searchbar callback= {notifyKeyWordChanged}/>
+            <Searchbar callback= {findkeyword}/>
             <Emaillist 
                 emails={emails} 
                 callbackDeleteEmail={deleteEmail} />

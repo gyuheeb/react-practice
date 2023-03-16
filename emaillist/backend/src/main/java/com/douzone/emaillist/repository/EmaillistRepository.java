@@ -26,7 +26,9 @@ public class EmaillistRepository {
 			
 	}
 
-	
+	public List<EmaillistVo> findKeyword(String keyword) {
+		return sqlSession.selectList("emaillist.findKeyword",keyword);
+	}
 	
 	
 }

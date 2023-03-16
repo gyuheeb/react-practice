@@ -18,5 +18,10 @@
 			delete from emaillist where no = #{no}	
 	  	]]>	
 	</update>	
-		
+	
+	<select id="findKeyword" resultType="emaillistvo">
+		<![CDATA[	
+			 select no, first_name, last_name, email from emaillist where concat(first_name,last_name) Like "%#{keyword}%" or email Like "%#{keyword}%" order by no desc;
+	  	]]>	
+	</select>
 </mapper>

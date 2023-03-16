@@ -47,8 +47,18 @@ public class EmaillistController {
 		
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(JsonResult.success(emaillistRepository.findAll()));
+				.body(JsonResult.success(no));
 	}
+	
+	@GetMapping("/email/{keyword}")
+	public ResponseEntity<JsonResult> find(@PathVariable("keyword") String keyword){
+		emaillistRepository.findKeyword(keyword);
+		
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(JsonResult.success(keyword));
+	}
+	
 	
 	
 }
