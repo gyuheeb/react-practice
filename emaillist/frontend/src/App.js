@@ -9,10 +9,10 @@ const App = () => {
     const [emails, setEmails]= useState([]);
      //keyword가 firstName or lastName or email 
 
-     const fetchEmails = async() =>{
+     const fetchEmails = async() =>{    //List 출력
         try{
             const response = await fetch('/api/email',{
-                method : 'get',
+                method : 'get',     //get 방식
                 headers :{
                     'Accept' : 'application/json'
                 }
@@ -21,10 +21,13 @@ const App = () => {
             if(!response.ok){
                 throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
              }
+
             const json = await response.json();
+            
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
+            console.log(`dd ${json.data}`);
             setEmails(json.data)
 
         }catch(err){
@@ -53,7 +56,7 @@ const App = () => {
          });
 
          if(!response.ok){
-             throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+             throw new Error(`${response.status} ${response.statusText}`)     
           }
          const json = await response.json();
          //console.log(json);
@@ -67,7 +70,7 @@ const App = () => {
      }};
 
     
-    const deleteEmail = async(no) =>{
+    const deleteEmail = async(no) =>{       //delete
         try{
             const response = await fetch(`/api/delete/${no}`,{
                 method : 'delete',
@@ -78,14 +81,14 @@ const App = () => {
                 
             });
             if(!response.ok){
-                throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+                throw new Error(`${response.status} ${response.statusText}`)    
              }
             const json = await response.json();
             //console.log(json);
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
-            const newEmails = emails.filter((email) => email.no !== no);
+            const newEmails = emails.filter((email) => email.no !== no);  //no가 아닌 걸 newEmails에 넣어..
             setEmails(newEmails);
             
         }catch(err){
@@ -94,7 +97,7 @@ const App = () => {
         }
     }
 
-    const findkeyword = async(keyword) =>{
+    const findkeyword = async(keyword) =>{       //keyword 검색
     
         try{
             const response = await fetch(`/api/email/${keyword}`,{
@@ -105,7 +108,7 @@ const App = () => {
             });
 
             if(!response.ok){
-                throw new Error(`${response.status} ${response.statusText}`)     //error 발생시 다 catch 로 넘겨줌
+                throw new Error(`${response.status} ${response.statusText}`)    
              }
             const json = await response.json();
             if(json.result !== 'success'){
