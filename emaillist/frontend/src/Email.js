@@ -12,7 +12,10 @@ const Email = ({no,firstname, lastname, email, callbackDeleteEmail}) => {
             {firstname + lastname}
             
             <span>{email}</span>
-            <a href='#' className={styles.Emaillist__}></a>
+            <a href='#' onclick={(e) => {
+                            e.preventDefault();
+                            callbackDeleteEmail(no);
+          }}></a>
             </li>
         
 
