@@ -3,15 +3,15 @@
 		eclipse Ctrl+F11 (스프링부트 애플리케이션 실행)
 
 	2) 빌드(배포)
-	   # mvn -f kanbanboard/backend exec:exec clean package
+	   # mvn -f kanbanboad/backend exec:exec clean package
 	   
 	   테스트
-	   # java -Dspring.profiles.active=production -jar kanbanboard/backend/target/kanbanboard.jar
+	   # java -Dspring.profiles.active=production -jar kanbanboad/backend/target/kanbanboard.jar
 	   
 
 2. ssh 연결(ssh key 인증)
 	1) key 생성하기
-		# ssh-keygen -t rsa -b 2048 -m PEM -C "kickscar@gmail.com"
+		# ssh-keygen -t rsa -b 2048 -m PEM -C "gyuhee4529@gmail.com"
 	2) key 생성확인
 		- ~/.ssh/id_rsa		: private key
 		- ~/.ssh/id_rsa.pub : public key
@@ -19,7 +19,7 @@
 		# mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys	
 	
 	4) 연결 테스트
-	    # ssh -i mykey.pem root@192.168.10.125
+	    # ssh -i mykey.pem root@192.168.10.118
 	 
 	5) jenkins
 		- Publish over SSH 플러그인 설치
