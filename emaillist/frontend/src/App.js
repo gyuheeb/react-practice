@@ -27,7 +27,7 @@ const App = () => {
             if(json.result !== 'success'){
                 throw new Error(`${json.result} ${json.message}`);
             }
-            console.log(`dd ${json.data}`);
+
             setEmails(json.data)
 
         }catch(err){
