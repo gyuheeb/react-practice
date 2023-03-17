@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx webpack serve --config config/webpack.config.js --progress --mode development",
-    "build": "npx webpack --config config/webpack.config.js --mode production"
+    "build": "npm i && npx webpack --config config/webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",
