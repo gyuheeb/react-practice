@@ -3,10 +3,10 @@
 		eclipse Ctrl+F11 (스프링부트 애플리케이션 실행)
 
 	2) 빌드(배포)
-	   # mvn -f kanbanboad/backend exec:exec clean package
+	   # mvn -f emaillist/backend exec:exec clean package
 	   
 	   테스트
-	   # java -Dspring.profiles.active=production -jar kanbanboad/backend/target/kanbanboard.jar
+	   # java -Dspring.profiles.active=production -jar emaillist/backend/target/emaillist.jar
 	   
 
 2. ssh 연결(ssh key 인증)
@@ -35,7 +35,7 @@
 		- Publish over SSH 플러그인 설치
 		- Publish over SSH 플러그인 ssh server 등록(springboot-publish-server)
 		- 프로젝트의 빌드 후 조치(post-build action)의 send suild artifacts over ssh 설정 	   
-		  kanbanboard.jar : transfer
+		  emaillist.jar : transfer
 		  launch.sh : transfer + execution
 		  
 ===============================================================
