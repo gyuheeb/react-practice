@@ -21,7 +21,17 @@
 	4) 연결 테스트
 	    # ssh -i mykey.pem root@192.168.10.118
 	 
-	5) jenkins
+	5) ssh 연결 환경설정   
+	- ~/.ssh/environment
+		===
+		/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/local/douzone2023/java/bin:/usr/local/douzone2023/git/bin:/usr/local/douzone2023/maven3.8/bin:/usr/local/douzone2023/mariadb/bin:/usr/local/douzone2023/node/bin:/usr/local/douzone2023/python/bin:/root/bin
+		===
+		
+	- /etc/ssh/sshd_config
+	  PermitUserEnvironment yes
+	
+	 
+	6) jenkins
 		- Publish over SSH 플러그인 설치
 		- Publish over SSH 플러그인 ssh server 등록(springboot-publish-server)
 		- 프로젝트의 빌드 후 조치(post-build action)의 send suild artifacts over ssh 설정 	   
