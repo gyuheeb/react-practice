@@ -19,6 +19,11 @@
     # yum install centos-release-scl
     # yum install devtoolset-7-gcc*
     # scl enable devtoolset-7 bash
+
+    <버전 11로 다시 설치>
+    # yum install devtoolset-11-gcc*
+    # scl enable devtoolset-11 bash
+
     # g++ --version
     Thread model: posix
     gcc version 7.3.1 20180303 (Red Hat 7.3.1-5) (GCC)
