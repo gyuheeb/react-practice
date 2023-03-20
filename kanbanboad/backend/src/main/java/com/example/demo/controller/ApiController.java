@@ -27,6 +27,7 @@ public class ApiController {
 
 	@Autowired
 	private TaskRepository taskRepository;
+	
 
 	@GetMapping("/card")
 	public ResponseEntity<JsonResult> readCard() {
