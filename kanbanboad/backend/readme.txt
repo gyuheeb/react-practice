@@ -25,7 +25,9 @@
 		- Publish over SSH 플러그인 설치
 		- Publish over SSH 플러그인 ssh server 등록(springboot-publish-server)
 		- 프로젝트의 빌드 후 조치(post-build action)의 send suild artifacts over ssh 설정 	   
-	
+		  kanbanboard.jar : transfer
+		  launch.sh : transfer + execution
+		  
 ===============================================================
 
 
